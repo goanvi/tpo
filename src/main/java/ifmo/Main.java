@@ -26,6 +26,10 @@ public class Main {
         room.addFurniture(controlPanel);
         room.enterRoom(human);
         chair.setOccupant(human);
+
+
+
+
     }
 }
 

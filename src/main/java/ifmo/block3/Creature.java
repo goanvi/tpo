@@ -13,11 +13,20 @@ public class Creature {
     private final Map<String, BodyPart> bodyPartsMap = new HashMap<>();
 
     public Creature(String name) {
+        if (name == null) {
+            throw new IllegalArgumentException();
+        }
         this.name = name;
         this.height = 0;
         this.condition = CreatureConditionEnum.NORMAL;
     }
     public Creature(String name, int height) {
+        if (name == null) {
+            throw new IllegalArgumentException();
+        }
+        if (height < 0) {
+            throw new IllegalArgumentException();
+        }
         this.name = name;
         this.height = height;
         this.condition = CreatureConditionEnum.NORMAL;
