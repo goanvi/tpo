@@ -21,6 +21,26 @@ public class Human extends Creature {
         }
     }
 
+    public void meet(Creature creature) {
+        if (!(creature instanceof Human)) {
+            changeCondition(CreatureConditionEnum.SHOCKED);
+        }
+        //TODO Может что то еще добавить
+    }
+
+    public void goTo(Room room) {
+        room.enterRoom(this);
+    }
+
+    public void goTo(Room prevRoom, Room newRoom) {
+        if (prevRoom != null) {
+            prevRoom.exitRoom(this.getName());
+        }
+        if (newRoom != null) {
+            newRoom.enterRoom(this);
+        }
+    }
+
     private void setStandardParts(Map<String, BodyPart> map) {
         BodyPart part = new BodyPart("Голова", 30, 20, BodyPartEnum.HEAD);
         map.put(part.getName(), part);

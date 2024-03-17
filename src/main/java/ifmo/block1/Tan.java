@@ -1,4 +1,4 @@
-package ifmo;
+package ifmo.block1;
 
 public class Tan {
     public static double calcTan(double x, int n) {
