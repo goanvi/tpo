@@ -48,17 +48,4 @@ public class HashMap {
         return list;
     }
 
-
-    public static void main(String[] args) {
-        HashMap map = new HashMap();
-        map.put("apple");
-        map.put("banana");
-        map.put("orange");
-
-        System.out.println("HashMap contains 'apple': " + map.contains("apple"));
-        System.out.println("HashMap contains 'grape': " + map.contains("grape"));
-
-        map.remove("banana");
-        System.out.println("HashMap after removing 'banana': " + map.get("banana"));
-    }
 }

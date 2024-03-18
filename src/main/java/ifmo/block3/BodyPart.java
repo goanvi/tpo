@@ -27,8 +27,9 @@ public class BodyPart {
     }
 
     public void endInteraction(BodyPart bodyPart) throws NoInteractionException {
-        if (!interactionBodyPart.equals(bodyPart)
-                || !equals(bodyPart.getInteractionBodyPart())) {
+        if (interactionBodyPart == null
+                || bodyPart.getInteractionBodyPart() == null
+                || !interactionBodyPart.equals(bodyPart)) {
             throw new NoInteractionException("эти части тела не взаимодействовали");
         }
         this.inAction = false;

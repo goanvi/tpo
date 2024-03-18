@@ -9,22 +9,23 @@ import java.util.Map;
 public class Creature {
     private final String name;
     private final int height;
-    private CreatureConditionEnum condition;
     private final Map<String, BodyPart> bodyPartsMap = new HashMap<>();
+    private CreatureConditionEnum condition;
 
     public Creature(String name) {
-        if (name == null) {
+        if (name == null || name.isEmpty()) {
             throw new IllegalArgumentException();
         }
         this.name = name;
         this.height = 0;
         this.condition = CreatureConditionEnum.NORMAL;
     }
+
     public Creature(String name, int height) {
-        if (name == null) {
+        if (name == null || name.isEmpty()) {
             throw new IllegalArgumentException();
         }
-        if (height < 0) {
+        if (height <= 0) {
             throw new IllegalArgumentException();
         }
         this.name = name;

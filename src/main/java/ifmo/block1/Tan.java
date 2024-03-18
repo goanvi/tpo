@@ -14,9 +14,6 @@ public class Tan {
 
 
     private static double calcSin(double x, int n) {
-        if (Double.isInfinite(x) || Double.isNaN(x)) {
-            throw new IllegalArgumentException("Argument can't be infinite or null!");
-        }
         x = x % (Math.PI * 2);
         double result = x;
         double x2 = x * x;
@@ -34,9 +31,6 @@ public class Tan {
     }
 
     private static double calcCos(double x, int n) {
-        if (Double.isInfinite(x) || Double.isNaN(x)) {
-            throw new IllegalArgumentException("Argument can't be infinite or null!");
-        }
         x = x % (Math.PI * 2);
         double result = 1;
         double x2 = x * x;
