@@ -15,7 +15,7 @@ public class HashMapTest {
     }
 
     @Test
-    public void testPutAndGet() {
+    public void testPutAndGet() throws NoSuchElementException {
         map.put("apple");
         map.put("banana");
         map.put("orange");
@@ -31,7 +31,7 @@ public class HashMapTest {
     }
 
     @Test
-    public void testRemove() {
+    public void testRemove() throws NoSuchElementException{
         map.put("apple");
         map.put("banana");
         map.put("orange");
@@ -46,5 +46,15 @@ public class HashMapTest {
         assertFalse(map.contains("apple"));
         assertFalse(map.contains("banana"));
         assertFalse(map.contains("orange"));
+    }
+
+    @Test
+    public void testNegativeCases(){
+        assertThrows(IllegalArgumentException.class, ()-> map.put(null));
+        assertThrows(NoSuchElementException.class, ()-> map.get("mango"));
+        assertThrows(NoSuchElementException.class, ()-> map.remove("banana"));
+        assertThrows(IllegalArgumentException.class, ()-> map.get(null));
+        assertThrows(IllegalArgumentException.class, ()-> map.remove(null));
+        assertThrows(IllegalArgumentException.class, ()-> map.contains(null));
     }
 }

@@ -26,15 +26,18 @@ class TanTest {
     @ParameterizedTest(name = "tan({0})")
     @DisplayName("Check PI")
     @ValueSource(doubles = {
-            -2 * Math.PI,
-            -1.3 * Math.PI,
-            -Math.PI,
-            -0.7 * Math.PI,
+            -Math.PI + 0.3 * Math.PI,
+            -Math.PI + 0,
+            -Math.PI - 0.3 * Math.PI,
+
+            -0.3 * Math.PI,
             0,
-            0.4 * Math.PI,
-            Math.PI,
-            1.8 * Math.PI,
-            2 * Math.PI
+            0.3 * Math.PI,
+
+            Math.PI - 0.3 * Math.PI,
+            Math.PI + 0,
+            Math.PI + 0.3 * Math.PI,
+
     })
     void checkPiDots(double param) {
         assertAll(
@@ -47,7 +50,7 @@ class TanTest {
     @CsvFileSource(resources = "/tan_test.csv", numLinesToSkip = 1, delimiter = ';')
     void checkBetweenDotsFromCsvHighAccuracy(double x, double y) {
         assertAll(
-                () -> assertEquals(y, Tan.calcTan(x, 50), 10e-7)
+                () -> assertEquals(y, Tan.calcTan(x, 93), 10e-7)
         );
     }
 

@@ -24,28 +24,45 @@ public class HashMap {
     }
 
 
-    public void put(String key) {
+    public void put(String key){
+        if (key == null) {
+            throw new IllegalArgumentException();
+        }
         int index = hash(key);
         LinkedList<String> list = hashArray.get(index);
         list.add(key);
     }
 
-    public void remove(String key) {
+    public void remove(String key) throws NoSuchElementException{
+        if (key == null) {
+            throw new IllegalArgumentException();
+        }
         int index = hash(key);
         LinkedList<String> list = hashArray.get(index);
+        if (list.isEmpty()) {
+            throw new NoSuchElementException("No such element");
+        }
         list.remove(key);
     }
 
     public boolean contains(String key) {
+        if (key == null) {
+            throw new IllegalArgumentException();
+        }
         int index = hash(key);
         LinkedList<String> list = hashArray.get(index);
         return list.contains(key);
     }
 
-    public List<String> get(String key) {
+    public List<String> get(String key) throws NoSuchElementException{
+        if (key == null) {
+            throw new IllegalArgumentException();
+        }
         int index = hash(key);
         LinkedList<String> list = hashArray.get(index);
+        if (list.isEmpty()) {
+            throw new NoSuchElementException("No such element");
+        }
         return list;
     }
-
 }
