@@ -5,7 +5,6 @@ import java.math.BigInteger;
 public class BernoulliNumber {
     public static double computeBernoulliNumber(int N) {
 
-        if (N > 1 && N % 2 == 1) return 0;
         N++;
         BigInteger[][] bin = new BigInteger[N + 1][N + 1];
 
